@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="space"></div>
+    <mat-card>
+        <br>
+        <h2 style= "text-align:center">EMPRÉSTIMOS</h2>
+        <h4 style="color:gray">Preencha o formulário abaixo com as informações do empréstimo que deseja cadastrar</h4>
+        <br>
+        <!--DADOS DO LEITOR-->
+        <h3 style="color:darkslategrey">Dados Pessoais</h3>
+
+        <form [formGroup]="editaForm" (ngSubmit)="onSubmit()" class="normal-form">
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="codLeitor" placeholder="Código"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="nomeLeitor" placeholder="Nome"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="emailLeitor" placeholder="Email"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="telLeitor"
+                    placeholder="Telefone do leitor" autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="codLivro" placeholder="Código do livro"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="tituloLivro" placeholder="Título do livro"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput onfocus="(this.type='date')" class="nome_inp" formControlName="dataEmp" placeholder="Data do empréstimo">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput onfocus="(this.type='date')" class="nome_inp" formControlName="dataDev" placeholder="Data de devolução">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <br><br>
+            <div class="cont">
+                <button mat-button color="primary"><mat-icon>save</mat-icon>Salvar</button>
+            </div>
+
+            <div class="cont">
+                <button mat-button color="primary" (click)="comparaDatas()"><mat-icon>save</mat-icon>Ver no Console</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

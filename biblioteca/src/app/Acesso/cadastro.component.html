@@ -1,0 +1,53 @@
+<!--
+    
+<div class="space">
+
+</div>
+
+<div class="form-container mat-elevation-z5">
+    <h1>Cadastre-se!</h1>
+
+    <form [formGroup]="cdstrForm" (ngSubmit)="criar()">
+
+        <mat-form-field>
+            <input matInput placeholder="Nome de usuário" formControlName="name" />
+            <mat-error *ngIf="name?.errors?.['required']">
+                É obrigatório preencher este campo
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" />
+            <mat-error *ngIf="email?.errors?.['required']">
+                É obrigatório preencher este campo
+            </mat-error>
+            <mat-error *ngIf="email?.errors?.['email']">
+                Insira um email válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Senha" formControlName="password" type="password" />
+            <mat-error *ngIf="password?.errors?.['required']">
+                É obrigatório preencher este campo
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Confirme a Senha" formControlName="confPassword" type="password" />
+            <mat-error *ngIf="confPassword?.errors?.['required']">
+                É obrigatório preencher este campo
+            </mat-error>
+        </mat-form-field>
+            <mat-error *ngIf="cdstrForm.errors?.['passwordsDontMatch']">
+            Senhas não estão iguais
+            </mat-error>
+
+        <div class="center margin-top">
+            <button mat-raised-button color="primary" type="submit">
+                Criar Conta
+            </button>
+        </div>
+    </form>
+</div>
+-->

@@ -1,0 +1,43 @@
+<!--
+    **<div class="navbar">
+    <h4>Home</h4>
+    <a href="#" *ngIf="userLogged|async as user">
+        <img style="border-radius: 100%" width="30" height="30" *ngIf="user.photoURL" src="{{user.photoURL}}" alt="ops... hehe">
+        {{user.email}}
+    </a>
+</div>**
+
+<mat-toolbar color="primary">
+
+    <span>Acessar Biblioteca</span>
+
+    <div class="spacer"></div>
+
+    Se estiver logado, logout icon; se estiver deslogado, login
+    <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+
+        <a mat-button matTooltip="Livros cadastrados" routerLink="/livros">Acervo</a>
+        <a mat-button matTooltip="Usuários cadastrados" routerLink="/leitores">Leitores</a>
+        <a mat-button matTooltip="Empréstimos realizados" routerLink="/emprestimos">Empréstimos</a>
+        <a mat-button matTooltip="Movimento da biblioteca">Fluxo</a>
+        <a mat-button matTooltip="Ajuda" routerLink="/aboutus">Ajuda</a>
+
+        <button mat-button (click)="logout()">
+            <mat-icon>account_circle</mat-icon>
+            {{user.displayName}}
+        </button>
+    </ng-container>
+
+    <ng-template #loginButton>
+        <button mat-button routerLink="login">
+            <mat-icon>login</mat-icon>
+            Login
+        </button>
+    </ng-template>
+</mat-toolbar>
+
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+
+-->

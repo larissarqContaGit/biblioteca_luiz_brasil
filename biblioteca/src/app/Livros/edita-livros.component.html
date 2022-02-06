@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="space">
+    </div>
+    <mat-card>
+        <br>
+        <h2 style="color: cornflowerblue; text-align:center">Ficha de edição de livros</h2>
+        <h4 style="color:gray">Altere o formulário abaixo com as informações do livro que deseja editar</h4>
+        <br>
+
+        <form [formGroup]="editaForm" (ngSubmit)="onSubmit()" class="normal-form">
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="cod" placeholder="Código"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="isbn" placeholder="ISBN"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="tombo" placeholder="Tombo"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="titulo" placeholder="Título"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="autor" placeholder="Autor"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+            <mat-form-field style="width: 30%;">
+                <mat-label>Categoria</mat-label>
+                <mat-select formControlName="categoria">
+                    <mat-option *ngFor="let opcao of categoria" [value]="opcao">
+                        {{opcao}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>Este campo é obrigatório</mat-error>
+
+
+                
+
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br>
+            <div class="cont">
+                <button mat-button color="primary" type="submit" [disabled]="editaForm.invalid"><mat-icon>save</mat-icon>Salvar Alterações</button>
+            </div>
+        </form>
+    </mat-card>
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+    <div class="space"></div>
+    <mat-card>
+        <br>
+        <h2 style="color: cornflowerblue; text-align:center">Empréstimos</h2>
+        <h4 style="color:gray">Preencha o formulário abaixo com as informações do empréstimo que deseja cadastrar</h4>
+        <br>
+
+        <form [formGroup]="service.form" (ngSubmit)="onSubmit()" class="normal-form">
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="codLeitor" placeholder="Código"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="nomeLeitor" placeholder="Nome"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="emailLeitor" placeholder="Email"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="telLeitor"
+                    placeholder="Telefone do leitor" autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            <br><br>
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="codLivro" placeholder="Código do livro"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput type="text" class="nome_inp" formControlName="tituloLivro" placeholder="Título do livro"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput onfocus="(this.type='date')" class="nome_inp" formControlName="dataEmp" placeholder="Data do empréstimo">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 20%;">
+                <input matInput onfocus="(this.type='date')" class="nome_inp" formControlName="dataDev" placeholder="Data de devolução">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <br><br>
+
+            <<mat-form-field class="example-full-width" appearance="fill" style="width: 30%;">
+                <mat-label>Number</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+            <div class="cont">
+                <button mat-button color="primary" [disabled]="service.form.invalid">
+                    <mat-icon>save</mat-icon>Salvar
+                </button>
+            </div>
+
+            <div class="cont">
+                <button mat-button color="primary" (click)="comparaDatas()"><mat-icon>save</mat-icon>Ver no Console</button>
+            </div>
+            
+        </form>
+    </mat-card>
+</div>

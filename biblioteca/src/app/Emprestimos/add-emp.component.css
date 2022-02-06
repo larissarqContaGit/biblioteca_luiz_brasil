@@ -1,0 +1,45 @@
+.space{
+    height: 5px;
+    width: 20px;
+}
+
+.container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.container > *{
+    width:80%;
+    margin-left: 12%;
+}
+
+mat-card{
+    width: 100%;
+}
+
+.title-card{
+    align-items: center;
+}
+
+.cont{
+    margin-left: 81%;
+}
+
+.nome_inp{
+    width: 400px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+ 
+  .example-full-width {
+    width: 100%;
+  }
+

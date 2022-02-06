@@ -1,0 +1,39 @@
+table{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.filter{
+    font-size: 14px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.cont{
+    margin-left: 85%;
+    margin-top: 30px;
+}
+
+.leitor-btn{
+    color:cornflowerblue;
+    border-color: cornflowerblue;
+}
+
+.ng-container{
+    font-size: 18px;
+}
+
+.cont{
+    justify-content: end;
+}
+
+.paginacao{
+    margin-right: 4%;
+}

@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="space">
+    </div>
+    <mat-card>
+        <br>
+        <h2 style="color: cornflowerblue; text-align:center">Ficha de cadastro de associados</h2>
+        <h4 style="color:gray">Preencha o formulário abaixo com as informações do leitor que deseja cadastrar</h4>
+        <br>
+        <!--DADOS PESSOAIS-->
+        <h3 style="color:darkslategrey">Dados Pessoais</h3>
+        <form [formGroup]="editaLeitor" (ngSubmit)="onSubmit()" class="normal-form">
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="cod" placeholder="Código do leitor"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field style="width: 30%;">
+                <input matInput [matDatepicker]="picker" formControlName="data_cad" placeholder="Data de Cadastro"
+                    required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            <br><br>
+
+            <mat-form-field style="width: 30%;">
+                <input matInput type="text" class="nome_inp" formControlName="nome" placeholder="Nome"
+                    autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%;">
+                <mat-label>Sexo</mat-label>
+                <mat-select formControlName="sexo">
+                    <mat-option *ngFor="let opcao of sexo" [value]="opcao">
+                        {{opcao}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>Este campo é obrigatório</mat-error>
+
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%">
+                <input matInput [matDatepicker]="picker1"  formControlName="data_nasc" placeholder="Data de Nascimento">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error>Este campo é obrigatório</mat-error>
+              </mat-form-field>
+            <br><br>
+
+            <br><br>
+            <mat-form-field style="width: 30%;">
+                <input matInput class="nome_inp" formControlName="rg" placeholder="RG" required>
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field style="width: 30%;">
+                <input matInput class="nome_inp" formControlName="cpf" placeholder="CPF" required>
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field style="width: 30%;">
+                <input matInput class="nome_inp" formControlName="nome_mae" placeholder="Nome da mãe">
+            </mat-form-field>
+            <br><br>
+
+            <!--ENDEREÇO-->
+            <h3 style="color:darkslategrey">Endereço</h3>
+
+            <mat-form-field style="width: 30%;">
+                <input matInput formControlName="cidade" placeholder="Cidade" autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%;">
+                <input matInput formControlName="bairro" placeholder="Bairro" autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-form-field style="width: 30%;">
+                <input matInput formControlName="rua" placeholder="Rua / Nº da casa" autocomplete="off">
+                <mat-error>Este campo é obrigatório</mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br>
+
+            <h3 style="color:darkslategrey">Contato</h3>
+
+            <mat-form-field>
+                <input style="width: 30%;" matInput formControlName="telefone" placeholder="Telefone" autocomplete="off">
+                <mat-error *ngIf="leitor.form.controls['telefone'].errors?.['required']">Esse campo é obrigatório
+                </mat-error>
+                <mat-error *ngIf="leitor.form.controls['telefone'].errors?.['minlength']">Mínimo de 8 caracteres
+                </mat-error>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input style="width: 30%;" matInput formControlName="email" placeholder="Email" autocomplete="off">
+                <mat-error *ngIf="leitor.form.controls['email'].errors?.['required']">Esse campo é obrigatório
+                </mat-error>
+                <mat-error *ngIf="leitor.form.controls['email'].errors?.['email']">Insira um email válido
+                </mat-error>
+            </mat-form-field>
+
+            <br><br>
+            <div class="button-row">
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="editaLeitor.invalid">Salvar Alterações</button>
+            </div>
+        </form>
+
+    </mat-card>
+</div>

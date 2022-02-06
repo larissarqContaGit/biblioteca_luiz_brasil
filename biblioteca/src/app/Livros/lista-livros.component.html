@@ -1,0 +1,68 @@
+
+<div class="containter">
+
+    <div class="cont">
+      <button class="emp-btn" mat-button routerLink="/add-livros" color="primary">
+        <mat-icon class="mat-18">local_library</mat-icon> &nbsp;&nbsp; Novo livro
+      </button>
+    </div>
+  
+    <mat-form-field class="filter" appearance="standard">
+      <mat-label>Procurar Livro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input autocomplete="off">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="cod">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
+        <td mat-cell *matCellDef="let element"> {{element.cod}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Título </th>
+        <td mat-cell *matCellDef="let element"> {{element.titulo}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="tombo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tombo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tombo}} </td>
+      </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="isbn">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ISBN </th>
+            <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+          </ng-container>
+          
+      <!-- Weight Column -->
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+
+            <button mat-button routerLink="/edita-livros/{{element.id}}">
+            <mat-icon style="color:rgb(167, 197, 197)">edit</mat-icon>
+          </button>
+          <button mat-button (click)="removeLivro(element.id)">
+            <mat-icon style="color:red">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <!-- Mensagem nada encontrado -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">"{{input.value}}" Não consta nos registros</td>
+      </tr>
+    </table>
+  
+    <mat-paginator class="paginacao" [pageSizeOptions]="[5, 25, 100]" showFirstLastButtons #paginator
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  
+  </div>

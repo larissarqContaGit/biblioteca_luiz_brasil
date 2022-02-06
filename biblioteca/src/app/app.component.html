@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span>Biblioteca Luiz Brasil</span>
+    <span class="space"></span>
+    <button mat-button routerLink="../lista-leitor" routerLinkActivate="active">Leitores</button>
+    <button mat-button routerLink="../lista-livros" routerLinkActivate="active">Acervo </button>
+    <button mat-button routerLink="../lista-emp" routerLinkActivate="active">Empréstimos</button>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="sim" routerLink="../login" routerLinkActivate="active">
+        <mat-icon>logout</mat-icon>
+    </button>  
+</mat-toolbar>
+
+<router-outlet></router-outlet>
