@@ -48,10 +48,19 @@ export class AddLivrosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value))
-    );
+    // this.filteredOptions = this.myControl.valueChanges.pipe(
+    //   startWith(''),
+    //   map((value) => this._filter(value))
+    // );
+    this.filteredOptions = this.angFire
+      .collection<string>('secao', (ref) => {
+        return ref.orderBy('secaoItem');
+      })
+      .valueChanges()
+      .pipe(
+        tap((s) => console.log(s)),
+        map((s: any) => s[0].secaoItem)
+      );
   }
 
   private _filter(value: string): string[] {
@@ -59,19 +68,6 @@ export class AddLivrosComponent implements OnInit {
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
-  }
-
-  pegaSecao() {
-    if (this.secao && this.secao.length) {
-      return this.secao;
-    } else {
-      return this.angFire
-        .collection('secao', (ref) => {
-          return ref.orderBy('secaoItem');
-        })
-        .valueChanges()
-        .pipe(tap((secao) => (this.secao = secao)));
-    }
   }
 
   onSubmit() {
