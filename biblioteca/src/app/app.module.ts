@@ -54,8 +54,6 @@ import { initializeApp } from 'firebase/app';
 import { DataPipe } from './Emprestimos/data.pipe';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +71,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     AddLivrosComponent,
     EditaLivrosComponent,
     DataPipe,
-
   ],
   imports: [
     HttpClientModule,
@@ -103,19 +100,14 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatCheckboxModule,
     MatNativeDateModule,
     HotToastModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
     //provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     //provideAuth(() => getAuth())
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [
-    DataPipe,
-    LeitorService,
-    EmprestimosService,
-    SecaoService
-  ],
+  providers: [DataPipe, LeitorService, EmprestimosService, SecaoService],
 
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
